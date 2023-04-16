@@ -1,7 +1,6 @@
 import bcrypt from "bcrypt";
 import { User_Model } from "$lib/db/models";
-
-const email_regexp = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+import { email_regexp } from "$lib/utils";
 
 export async function register_user(email: string, password: string) {
 	const email_error = await verify_email(email);
