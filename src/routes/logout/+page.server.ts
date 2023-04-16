@@ -1,7 +1,7 @@
-import type { RequestHandler } from "./$types";
 import { redirect } from "@sveltejs/kit";
+import type { PageServerLoad } from "./$types";
 
-export const GET: RequestHandler = async (event) => {
+export const load: PageServerLoad = async (event) => {
 	event.cookies.delete("auth-token");
 	event.locals.user = null;
 	throw redirect(301, "/");
