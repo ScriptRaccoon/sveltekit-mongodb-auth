@@ -7,7 +7,3 @@
 {#if data.user}
 	Welcome! You are logged in via {data.user.email}.
 {/if}
-
-<form action="/logout" method="GET">
-	<button>Logout</button>
-</form>

@@ -22,7 +22,8 @@ export const actions: Actions = {
 				path: "/",
 				maxAge: one_day
 			});
-			const message = "Login successful!";
+			const message =
+				"Login successful! You can now open the dashboard.";
 			return { email, message };
 		}
 	}
