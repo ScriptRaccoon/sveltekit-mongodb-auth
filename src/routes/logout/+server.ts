@@ -3,7 +3,6 @@ import { redirect } from "@sveltejs/kit";
 
 export const GET: RequestHandler = async (event) => {
 	event.cookies.delete("auth-token");
-	//@ts-ignore
-	delete event.locals.user;
-	throw redirect(300, "/");
+	event.locals.user = null;
+	throw redirect(301, "/");
 };

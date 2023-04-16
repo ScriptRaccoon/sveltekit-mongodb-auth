@@ -7,18 +7,19 @@ import { SECRET_JWT_KEY } from "$env/static/private";
 export async function login_user(email: string, password: string) {
 	const user = await get_user(email, password);
 
-	if (user.error) {
+	if ("error" in user) {
 		return { error: user.error };
 	}
 
-	const id = user.id;
-
-	const token = jwt.sign({ id, email }, SECRET_JWT_KEY);
+	const token = jwt.sign(user, SECRET_JWT_KEY);
 
 	return { token };
 }
 
-async function get_user(email: string, password: string) {
+async function get_user(
+	email: string,
+	password: string
+): Promise<{ error: string } | user> {
 	if (!email) {
 		return { error: "Email is required." };
 	}
@@ -46,5 +47,7 @@ async function get_user(email: string, password: string) {
 		return { error: "Password is not correct." };
 	}
 
-	return { id: user._id.toString() };
+	const id = user._id.toString();
+
+	return { id, email };
 }
