@@ -6,7 +6,7 @@ export const actions: Actions = {
 	default: async ({ request }) => {
 		const data = await request.formData();
 
-		const email = data.get("email") as string;
+		const email = (data.get("email") as string).toLowerCase();
 		const password = data.get("password") as string;
 
 		const user = await register_user(email, password);

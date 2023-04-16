@@ -9,6 +9,12 @@ export async function register_user(email: string, password: string) {
 		return { error: "Password is required." };
 	}
 
+	const previous_user = await User_Model.findOne({ email });
+
+	if (previous_user) {
+		return { error: "There is already an account with this email." };
+	}
+
 	const salt_rounds = 10;
 	const hashed_password = await bcrypt.hash(password, salt_rounds);
 
@@ -16,6 +22,7 @@ export async function register_user(email: string, password: string) {
 		email,
 		password: hashed_password
 	});
+
 	try {
 		const saved_user = await user.save();
 		return saved_user;
