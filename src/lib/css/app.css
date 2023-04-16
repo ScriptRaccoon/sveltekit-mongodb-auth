@@ -46,7 +46,7 @@ input {
 }
 
 form > * {
-	margin-bottom: 1rem;
+	margin-block: 0.5rem;
 }
 
 label {
