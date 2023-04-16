@@ -1,7 +1,13 @@
 <script lang="ts">
+	import { onMount } from "svelte";
 	import type { ActionData } from "./$types";
+	import { invalidate } from "$app/navigation";
 
 	export let form: ActionData;
+
+	onMount(() => {
+		invalidate("login_status");
+	});
 </script>
 
 <h1>Login</h1>
