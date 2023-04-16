@@ -10,8 +10,8 @@ export const actions: Actions = {
 		const password = data.get("password") as string;
 
 		const user = await register_user(email, password);
-		if ("error" in user) {
-			return fail(500, { email, error: user.error });
+		if ("error_list" in user) {
+			return fail(500, { email, errors: user.error_list });
 		} else {
 			const message = "Registration successful! You can now login.";
 			return { email, message };
