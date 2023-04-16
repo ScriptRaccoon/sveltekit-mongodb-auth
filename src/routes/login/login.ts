@@ -1,5 +1,7 @@
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 import { User_Model } from "$lib/db/models";
+import { SECRET_JWT_KEY } from "$env/static/private";
 
 export async function login_user(email: string, password: string) {
 	if (!email) {
@@ -24,5 +26,9 @@ export async function login_user(email: string, password: string) {
 		return { error: "Password is not correct." };
 	}
 
-	return user;
+	const id = user._id.toString();
+
+	const token = jwt.sign({ id, email }, SECRET_JWT_KEY);
+
+	return { token };
 }
