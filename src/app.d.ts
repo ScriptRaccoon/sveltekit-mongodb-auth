@@ -6,7 +6,7 @@ declare global {
 
 	namespace App {
 		interface Locals {
-			user: user | null;
+			user: user | undefined;
 		}
 	}
 }

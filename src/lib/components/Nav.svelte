@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let user: user | null;
+	export let user: user | undefined;
 </script>
 
 <nav>
