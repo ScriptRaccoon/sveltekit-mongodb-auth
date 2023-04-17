@@ -7,6 +7,10 @@
 	});
 </script>
 
-<h1>Logout successful</h1>
+<svelte:head>
+	<title>Logout</title>
+</svelte:head>
 
-Bye!
+<h1>Logout</h1>
+
+You have logged out successfully. See you around!

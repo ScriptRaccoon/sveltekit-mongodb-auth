@@ -5,11 +5,8 @@
 	export let data: LayoutData;
 </script>
 
-<svelte:head>
-	<title>MongoDB Project</title>
-</svelte:head>
-
 <Nav user={data.user} />
+
 <main>
 	<slot />
 </main>
