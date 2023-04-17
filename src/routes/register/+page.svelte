@@ -33,10 +33,8 @@
 	</div>
 {/if}
 
-{#if form?.errors}
-	{#each form?.errors as error}
-		<div class="bold error">
-			{error}
-		</div>
-	{/each}
+{#if form?.error}
+	<div class="bold error">
+		{form.error}
+	</div>
 {/if}

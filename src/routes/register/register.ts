@@ -4,11 +4,15 @@ import { email_regexp } from "$lib/utils";
 
 export async function register_user(email: string, password: string) {
 	const email_error = await verify_email(email);
+
+	if (email_error) {
+		return { error: email_error };
+	}
+
 	const password_error = verify_password(password);
 
-	if (email_error || password_error) {
-		const error_list = [email_error, password_error].filter((x) => x);
-		return { error_list };
+	if (password_error) {
+		return { error: password_error };
 	}
 
 	const salt_rounds = 10;
@@ -24,7 +28,7 @@ export async function register_user(email: string, password: string) {
 		return saved_user;
 	} catch (err) {
 		console.log(err);
-		return { error_list: ["Registration failed."] };
+		return { error: "Registration failed." };
 	}
 }
 
