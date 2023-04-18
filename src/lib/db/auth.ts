@@ -6,9 +6,9 @@ export function authenticate(cookies: Cookies) {
 	let token = cookies.get("auth-token");
 	if (!token) return undefined;
 	try {
-		const user = jwt.verify(token, SECRET_JWT_KEY);
-		if (!user) throw "";
-		return user as user;
+		const user_data = jwt.verify(token, SECRET_JWT_KEY);
+		if (!user_data) throw "";
+		return user_data as { id: string };
 	} catch {
 		return undefined;
 	}
