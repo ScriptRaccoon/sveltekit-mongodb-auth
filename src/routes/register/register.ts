@@ -2,7 +2,11 @@ import bcrypt from "bcrypt";
 import { User_Model } from "$lib/db/models";
 import { email_regexp } from "$lib/utils";
 
-export async function register_user(email: string, password: string) {
+export async function register_user(
+	email: string,
+	password: string,
+	name: string
+) {
 	const email_error = await verify_email(email);
 
 	if (email_error) {
@@ -15,12 +19,19 @@ export async function register_user(email: string, password: string) {
 		return { error: password_error };
 	}
 
+	const name_error = verify_name(name);
+
+	if (name_error) {
+		return { error: name_error };
+	}
+
 	const salt_rounds = 10;
 	const hashed_password = await bcrypt.hash(password, salt_rounds);
 
 	const user = new User_Model({
 		email,
-		password: hashed_password
+		password: hashed_password,
+		name
 	});
 
 	try {
@@ -57,6 +68,18 @@ function verify_password(password: string): string {
 
 	if (password.length < 8) {
 		return "Password must be at least 8 characters.";
+	}
+
+	return "";
+}
+
+function verify_name(name: string): string {
+	if (!name) {
+		return "Name is required.";
+	}
+
+	if (name.length <= 1) {
+		return "Name has to be at least 2 characters.";
 	}
 
 	return "";

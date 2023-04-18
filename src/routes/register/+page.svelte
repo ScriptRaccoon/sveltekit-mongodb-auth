@@ -24,6 +24,10 @@
 		<label for="password_input">Password</label>
 		<input type="password" id="password_input" name="password" />
 	</div>
+	<div>
+		<label for="name_input">Name</label>
+		<input type="text" id="name_input" name="name" />
+	</div>
 	<button>Register</button>
 </form>
 
