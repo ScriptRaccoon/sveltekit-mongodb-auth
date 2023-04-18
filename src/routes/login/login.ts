@@ -4,7 +4,10 @@ import { email_regexp } from "$lib/utils";
 import { User_Model } from "$lib/db/models";
 import { SECRET_JWT_KEY } from "$env/static/private";
 
-export async function login_user(email: string, password: string) {
+export async function login_user(
+	email: string,
+	password: string
+): Promise<{ error: string } | { token: string }> {
 	const user = await get_user(email, password);
 
 	if ("error" in user) {

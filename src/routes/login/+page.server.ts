@@ -9,11 +9,11 @@ export const actions: Actions = {
 		const email = data.get("email") as string;
 		const password = data.get("password") as string;
 
-		const user = await login_user(email, password);
-		if ("error" in user) {
-			return fail(500, { email, error: user.error });
+		const user_data = await login_user(email, password);
+		if ("error" in user_data) {
+			return fail(500, { email, error: user_data.error });
 		} else {
-			const token = user.token;
+			const { token } = user_data;
 			const one_day = 60 * 60 * 24;
 			cookies.set("auth-token", token, {
 				httpOnly: true,

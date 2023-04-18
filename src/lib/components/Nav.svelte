@@ -13,7 +13,7 @@
 				<a href="/dashboard">Dashboard</a>
 			</li>
 			<li>
-				<a href="/logout">Logout</a>
+				<a data-sveltekit-preload-data="tap" href="/logout">Logout</a>
 			</li>
 		{:else}
 			<li>
