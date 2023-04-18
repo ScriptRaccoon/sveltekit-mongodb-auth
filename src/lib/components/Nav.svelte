@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let user: user | undefined;
+	export let user: { id: string } | undefined;
 </script>
 
 <nav>
