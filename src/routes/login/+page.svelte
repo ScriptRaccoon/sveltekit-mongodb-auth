@@ -2,12 +2,17 @@
 	import { onMount } from "svelte";
 	import type { ActionData } from "./$types";
 	import { invalidate } from "$app/navigation";
+	import { browser } from "$app/environment";
 
 	export let form: ActionData;
 
 	onMount(() => {
 		invalidate("login_status");
 	});
+
+	$: if (form?.user && browser) {
+		localStorage.setItem("name", form.user.name);
+	}
 </script>
 
 <svelte:head>
@@ -33,9 +38,9 @@
 	<button>Login</button>
 </form>
 
-{#if form?.message}
+{#if form?.user}
 	<div class="bold success">
-		{form.message}
+		Welcome {form.user.name}! You can now open the dashboard.
 	</div>
 {/if}
 

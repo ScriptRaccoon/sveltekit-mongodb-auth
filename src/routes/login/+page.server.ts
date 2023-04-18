@@ -13,7 +13,7 @@ export const actions: Actions = {
 		if ("error" in user_data) {
 			return fail(500, { email, error: user_data.error });
 		} else {
-			const { token } = user_data;
+			const { token, user } = user_data;
 			const one_day = 60 * 60 * 24;
 			cookies.set("auth-token", token, {
 				httpOnly: true,
@@ -22,9 +22,7 @@ export const actions: Actions = {
 				path: "/",
 				maxAge: one_day
 			});
-			const message =
-				"Login successful! You can now open the dashboard.";
-			return { email, message };
+			return { user };
 		}
 	}
 };

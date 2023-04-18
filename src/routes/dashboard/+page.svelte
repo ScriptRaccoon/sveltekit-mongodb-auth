@@ -1,5 +1,11 @@
 <script>
-	export let data;
+	import { browser } from "$app/environment";
+
+	let name = "";
+
+	if (browser) {
+		name = localStorage.getItem("name") ?? "";
+	}
 </script>
 
 <svelte:head>
@@ -8,6 +14,6 @@
 
 <h1>Dashboard</h1>
 
-{#if data.user}
-	Welcome! You are logged in via {data.user.email}.
-{/if}
+<h2>Welcome {name}</h2>
+
+More to come ...
