@@ -12,9 +12,6 @@
 			<li>
 				<a href="/dashboard">Dashboard</a>
 			</li>
-			<li>
-				<a data-sveltekit-preload-data="tap" href="/logout">Logout</a>
-			</li>
 		{:else}
 			<li>
 				<a href="/register">Register</a>
