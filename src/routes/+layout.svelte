@@ -5,7 +5,7 @@
 	export let data: LayoutData;
 </script>
 
-<Nav user={data.user} />
+<Nav auth={data.auth} />
 
 <main>
 	<slot />

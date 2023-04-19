@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let user: { id: string } | undefined;
+	export let auth: { id: string } | undefined;
 </script>
 
 <nav>
@@ -8,7 +8,7 @@
 			<a href="/">Home</a>
 		</li>
 
-		{#if user}
+		{#if auth}
 			<li>
 				<a href="/dashboard">Dashboard</a>
 			</li>

@@ -8,5 +8,5 @@ export const load: LayoutServerLoad = async (event) => {
 		throw error(500, "Database connection failed");
 	}
 	event.depends("login_status");
-	return { user: event.locals.user };
+	return { auth: event.locals.auth };
 };
