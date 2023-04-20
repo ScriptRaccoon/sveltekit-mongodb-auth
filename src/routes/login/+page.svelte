@@ -1,13 +1,12 @@
 <script lang="ts">
-	import { onMount } from "svelte";
 	import type { ActionData } from "./$types";
-	import { invalidateAll } from "$app/navigation";
+	import { user } from "$lib/stores";
 
 	export let form: ActionData;
 
-	onMount(() => {
-		invalidateAll();
-	});
+	$: if (form) {
+		$user = form?.user ?? null;
+	}
 </script>
 
 <svelte:head>

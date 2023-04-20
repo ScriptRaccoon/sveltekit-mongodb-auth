@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { user } from "$lib/stores";
 </script>
 
 <nav>
@@ -6,17 +7,18 @@
 		<li>
 			<a href="/">Home</a>
 		</li>
-
-		<li>
-			<a href="/dashboard">Dashboard</a>
-		</li>
-
-		<li>
-			<a href="/register">Register</a>
-		</li>
-		<li>
-			<a href="/login">Login</a>
-		</li>
+		{#if $user}
+			<li>
+				<a href="/dashboard">Dashboard</a>
+			</li>
+		{:else}
+			<li>
+				<a href="/register">Register</a>
+			</li>
+			<li>
+				<a href="/login">Login</a>
+			</li>
+		{/if}
 	</ul>
 </nav>
 

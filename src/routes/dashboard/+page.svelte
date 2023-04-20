@@ -1,9 +1,11 @@
 <script>
 	import { goto } from "$app/navigation";
+	import { user } from "$lib/stores";
 
 	async function logout() {
 		const response = await fetch("/logout");
 		if (response.status == 200) {
+			$user = null;
 			goto("/");
 		}
 	}
@@ -15,7 +17,7 @@
 
 <h1>Dashboard</h1>
 
-More to come ...
+<p>Welcome, {$user?.name}!</p>
 
 <section aria-label="logout">
 	<div>
