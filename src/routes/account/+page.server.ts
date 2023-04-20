@@ -1,4 +1,4 @@
-import { authenticate } from "$lib/db/auth";
+import { authenticate } from "$lib/auth";
 import { change_name } from "$lib/db/name";
 import { fail, type Actions } from "@sveltejs/kit";
 
