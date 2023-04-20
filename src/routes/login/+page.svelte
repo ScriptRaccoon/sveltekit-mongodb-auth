@@ -1,18 +1,13 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import type { ActionData } from "./$types";
-	import { invalidate } from "$app/navigation";
-	import { browser } from "$app/environment";
+	import { invalidateAll } from "$app/navigation";
 
 	export let form: ActionData;
 
 	onMount(() => {
-		invalidate("login_status");
+		invalidateAll();
 	});
-
-	$: if (form?.user && browser) {
-		localStorage.setItem("name", form.user.name);
-	}
 </script>
 
 <svelte:head>

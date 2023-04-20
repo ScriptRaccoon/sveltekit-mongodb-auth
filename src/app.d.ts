@@ -5,11 +5,7 @@ declare global {
 		name: string;
 	};
 
-	namespace App {
-		interface Locals {
-			auth?: { id: string };
-		}
-	}
+	namespace App {}
 }
 
 export {};
