@@ -1,14 +1,5 @@
 <script>
-	import { goto } from "$app/navigation";
 	import { user } from "$lib/stores";
-
-	async function logout() {
-		const response = await fetch("/logout");
-		if (response.status == 200) {
-			$user = null;
-			goto("/");
-		}
-	}
 </script>
 
 <svelte:head>
@@ -19,14 +10,15 @@
 
 <p>Welcome, {$user?.name}!</p>
 
-<section aria-label="logout">
-	<div>
-		<button on:click={logout}>Logout</button>
-	</div>
-</section>
+<img
+	src="https://unsplash.it/700/400"
+	alt="random placeholder from unsplash"
+/>
 
 <style>
-	section {
+	img {
+		display: block;
+		max-width: 100%;
 		margin-top: 1rem;
 	}
 </style>

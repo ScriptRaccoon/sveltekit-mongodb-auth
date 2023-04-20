@@ -11,6 +11,9 @@
 			<li>
 				<a href="/dashboard">Dashboard</a>
 			</li>
+			<li>
+				<a href="/account">Account</a>
+			</li>
 		{:else}
 			<li>
 				<a href="/register">Register</a>
