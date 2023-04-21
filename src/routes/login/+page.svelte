@@ -1,12 +1,7 @@
 <script lang="ts">
 	import type { ActionData } from "./$types";
-	import { user } from "$lib/stores";
 
 	export let form: ActionData;
-
-	$: if (form) {
-		$user = form?.user ?? null;
-	}
 </script>
 
 <svelte:head>

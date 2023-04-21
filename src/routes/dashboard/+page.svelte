@@ -1,14 +1,8 @@
-<script>
-	import { user } from "$lib/stores";
-</script>
-
 <svelte:head>
 	<title>Dashboard</title>
 </svelte:head>
 
 <h1>Dashboard</h1>
-
-<p>Welcome, {$user?.name}!</p>
 
 <img
 	src="https://picsum.photos/id/177/800/600"

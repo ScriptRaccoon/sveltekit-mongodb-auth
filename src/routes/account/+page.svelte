@@ -1,12 +1,7 @@
 <script lang="ts">
-	import { user } from "$lib/stores";
 	import type { ActionData } from "./$types";
 
 	export let form: ActionData;
-
-	$: if (form?.name && $user) {
-		$user.name = form?.name;
-	}
 </script>
 
 <svelte:head>
@@ -15,19 +10,12 @@
 
 <h1>Account</h1>
 
-<p>
-	You are logged in with the email <strong>{$user?.email}</strong>.
-</p>
+<p>You are logged in with the email ???.</p>
 
 <form action="?/name" method="POST" autocomplete="off">
 	<div>
 		<label for="name_input">Name</label>
-		<input
-			type="text"
-			id="name_input"
-			name="name"
-			value={$user?.name}
-		/>
+		<input type="text" id="name_input" name="name" value={"???"} />
 	</div>
 	<button>Change name</button>
 </form>
