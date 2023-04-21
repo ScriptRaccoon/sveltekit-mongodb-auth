@@ -1,27 +1,56 @@
-<script>
+<script lang="ts">
+	import { page } from "$app/stores";
+
 	export let logged_in = false;
+
+	$: path = $page.url.pathname;
+
+	type link = {
+		path: string;
+		text: string;
+		protected: boolean;
+	};
+
+	const links: link[] = [
+		{
+			path: "/",
+			text: "Home",
+			protected: false
+		},
+		{
+			path: "/dashboard",
+			text: "Dashboard",
+			protected: true
+		},
+		{
+			path: "/account",
+			text: "Account",
+			protected: true
+		},
+		{
+			path: "/register",
+			text: "Register",
+			protected: false
+		},
+		{
+			path: "/login",
+			text: "Login",
+			protected: false
+		}
+	];
 </script>
 
 <nav>
 	<ul>
-		<li>
-			<a href="/">Home</a>
-		</li>
-		{#if logged_in}
-			<li>
-				<a href="/dashboard">Dashboard</a>
-			</li>
-			<li>
-				<a href="/account">Account</a>
-			</li>
-		{:else}
-			<li>
-				<a href="/register">Register</a>
-			</li>
-			<li>
-				<a href="/login">Login</a>
-			</li>
-		{/if}
+		{#each links as link}
+			{#if link.path === "/" || logged_in == link.protected}
+				<a
+					href={link.path}
+					aria-current={path == link.path ? "page" : "false"}
+					>{link.text}</a
+				>
+			{/if}
+		{/each}
 	</ul>
 </nav>
 
