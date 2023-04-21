@@ -22,7 +22,7 @@
 			type="email"
 			id="email_input"
 			name="email"
-			value={form?.email ?? ""}
+			value={form?.user?.email ?? ""}
 		/>
 	</div>
 	<div>
