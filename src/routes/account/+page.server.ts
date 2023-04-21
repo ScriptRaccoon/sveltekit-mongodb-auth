@@ -1,5 +1,6 @@
 import { authenticate } from "$lib/auth";
 import { change_name } from "$lib/db/name";
+import { cookie_options } from "$lib/utils";
 import { fail, type Actions } from "@sveltejs/kit";
 
 export const actions: Actions = {
@@ -26,7 +27,7 @@ export const actions: Actions = {
 			return fail(500, { error: update.error });
 		}
 
-		event.cookies.set("name", name);
+		event.cookies.set("name", name, cookie_options);
 
 		return { name: name, message: `Your new name is ${name}.` };
 	}

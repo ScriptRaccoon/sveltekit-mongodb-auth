@@ -1,6 +1,7 @@
 import { fail } from "@sveltejs/kit";
 import type { Actions } from "./$types";
 import { login_user } from "./login";
+import { cookie_options } from "$lib/utils";
 
 export const actions: Actions = {
 	default: async ({ request, cookies }) => {
@@ -15,16 +16,6 @@ export const actions: Actions = {
 			return fail(500, { email, error: user_data.error });
 		} else {
 			const { token, user } = user_data;
-
-			const one_day = 60 * 60 * 24;
-
-			const cookie_options = {
-				httpOnly: true,
-				secure: true,
-				sameSite: "strict",
-				path: "/",
-				maxAge: one_day
-			} as const;
 
 			cookies.set("auth-token", token, cookie_options);
 			cookies.set("email", user.email, cookie_options);

@@ -9,7 +9,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	const auth = authenticate(event.cookies);
 
-	if (is_protected && !auth) throw redirect(307, "/login");
+	if (is_protected && !auth) {
+		event.cookies.delete("email");
+		event.cookies.delete("name");
+		throw redirect(307, "/login");
+	}
 
 	const response = await resolve(event);
 	return response;

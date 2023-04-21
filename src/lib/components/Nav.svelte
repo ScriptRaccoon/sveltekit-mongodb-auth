@@ -1,20 +1,27 @@
+<script>
+	export let logged_in = false;
+</script>
+
 <nav>
 	<ul>
 		<li>
 			<a href="/">Home</a>
 		</li>
-		<li>
-			<a href="/dashboard">Dashboard</a>
-		</li>
-		<li>
-			<a href="/account">Account</a>
-		</li>
-		<li>
-			<a href="/register">Register</a>
-		</li>
-		<li>
-			<a href="/login">Login</a>
-		</li>
+		{#if logged_in}
+			<li>
+				<a href="/dashboard">Dashboard</a>
+			</li>
+			<li>
+				<a href="/account">Account</a>
+			</li>
+		{:else}
+			<li>
+				<a href="/register">Register</a>
+			</li>
+			<li>
+				<a href="/login">Login</a>
+			</li>
+		{/if}
 	</ul>
 </nav>
 
