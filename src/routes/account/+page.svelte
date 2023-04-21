@@ -1,15 +1,6 @@
 <script lang="ts">
-	import { goto } from "$app/navigation";
 	import { user } from "$lib/stores";
 	import type { ActionData } from "./$types";
-
-	async function logout() {
-		const response = await fetch("/logout");
-		if (response.status == 200) {
-			$user = null;
-			goto("/");
-		}
-	}
 
 	export let form: ActionData;
 
@@ -28,7 +19,7 @@
 	You are logged in with the email <strong>{$user?.email}</strong>.
 </p>
 
-<form action="?/name" method="POST">
+<form action="?/name" method="POST" autocomplete="off">
 	<div>
 		<label for="name_input">Name</label>
 		<input
@@ -53,8 +44,8 @@
 	</div>
 {/if}
 
-<form on:submit|preventDefault={logout}>
-	<button on:click={logout}>Logout</button>
+<form action="/logout" method="POST">
+	<button>Logout</button>
 </form>
 
 <style>

@@ -1,27 +1,20 @@
-<script lang="ts">
-	import { user } from "$lib/stores";
-</script>
-
 <nav>
 	<ul>
 		<li>
 			<a href="/">Home</a>
 		</li>
-		{#if $user}
-			<li>
-				<a href="/dashboard">Dashboard</a>
-			</li>
-			<li>
-				<a href="/account">Account</a>
-			</li>
-		{:else}
-			<li>
-				<a href="/register">Register</a>
-			</li>
-			<li>
-				<a href="/login">Login</a>
-			</li>
-		{/if}
+		<li>
+			<a href="/dashboard">Dashboard</a>
+		</li>
+		<li>
+			<a href="/account">Account</a>
+		</li>
+		<li>
+			<a href="/register">Register</a>
+		</li>
+		<li>
+			<a href="/login">Login</a>
+		</li>
 	</ul>
 </nav>
 
