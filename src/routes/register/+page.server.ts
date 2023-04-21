@@ -10,13 +10,15 @@ export const actions: Actions = {
 		const password = data.get("password") as string;
 		const name = data.get("name") as string;
 
+		const user = { email, name };
+
 		const { error } = await register_user(email, password, name);
 
 		if (error) {
-			return fail(500, { email, name, error });
+			return fail(400, { user, error });
 		} else {
 			const message = "Registration successful! You can now login.";
-			return { email, name, message };
+			return { user, message };
 		}
 	}
 };

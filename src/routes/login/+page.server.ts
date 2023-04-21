@@ -25,7 +25,7 @@ export const actions: Actions = {
 				maxAge: one_day
 			});
 
-			return { user };
+			return { email, user };
 		}
 	}
 };

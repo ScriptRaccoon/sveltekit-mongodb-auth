@@ -17,7 +17,7 @@
 			type="email"
 			id="email_input"
 			name="email"
-			value={form?.email ?? ""}
+			value={form?.user?.email ?? ""}
 		/>
 	</div>
 	<div>
@@ -30,7 +30,7 @@
 			type="text"
 			id="name_input"
 			name="name"
-			value={form?.name ?? ""}
+			value={form?.user?.name ?? ""}
 		/>
 	</div>
 	<button>Register</button>
