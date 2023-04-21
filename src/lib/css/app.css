@@ -5,7 +5,9 @@
 }
 
 :root {
-	--primary-color: rgb(33, 70, 17);
+	--accent-color: rgb(211, 59, 3);
+	--highlight-color: yellow;
+	--error-color: rgb(255, 50, 50);
 }
 
 body {
@@ -13,10 +15,15 @@ body {
 		"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
 		"Helvetica Neue", sans-serif;
 	line-height: 1.5;
+	background-color: #121217;
+	color: white;
+	font-size: 1.2rem;
 }
 
 h1 {
-	padding-block: 1rem;
+	padding-block: 2rem;
+	line-height: 1.2;
+	font-weight: 400;
 }
 
 a {
@@ -24,43 +31,57 @@ a {
 	text-underline-offset: 0.2rem;
 }
 
-button {
-	background-color: var(--primary-color);
-	color: white;
+a:hover,
+a:focus {
+	color: var(--highlight-color);
+	outline: none;
+}
+
+button,
+input {
+	color: inherit;
 	border: none;
 	font-family: inherit;
 	font-size: inherit;
-	padding: 0.4rem 0.8rem;
-	cursor: pointer;
+	padding-block: 0.4rem;
 	border-radius: 0.25rem;
+	background: none;
+}
+
+button {
+	padding-inline: 0.8rem;
+	background-color: var(--accent-color);
+	cursor: pointer;
+}
+
+button:focus {
+	outline: 0.1rem solid white;
+	outline-offset: 0.2rem;
 }
 
 input {
-	font-family: inherit;
-	font-size: inherit;
-	color: inherit;
-	padding: 0.4rem;
+	padding-inline: 0.4rem;
 	width: 100%;
 	border: 0.1rem solid #555;
-	border-radius: 0.25rem;
+}
+
+input:focus {
+	outline: none;
+	border-color: var(--accent-color);
 }
 
 form > * {
-	margin-block: 0.5rem;
+	margin-bottom: 1.5rem;
 }
 
 label {
 	display: block;
 }
 
-.bold {
-	font-weight: bold;
-}
-
 .error {
-	color: red;
+	color: var(--error-color);
 }
 
 .success {
-	color: var(--primary-color);
+	color: var(--highlight-color);
 }

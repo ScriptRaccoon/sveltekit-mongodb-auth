@@ -27,8 +27,8 @@
 
 <style>
 	nav {
-		padding: 1rem;
-		background-color: var(--primary-color);
+		padding-block: 1.5rem;
+		background-color: #222227;
 		color: white;
 	}
 	ul {
@@ -36,6 +36,6 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		gap: 1rem;
+		gap: 1.5rem;
 	}
 </style>

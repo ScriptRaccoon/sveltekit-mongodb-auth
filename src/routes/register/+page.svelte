@@ -32,13 +32,13 @@
 </form>
 
 {#if form?.message}
-	<div class="bold success">
+	<div class="success">
 		{form.message}
 	</div>
 {/if}
 
 {#if form?.error}
-	<div class="bold error">
+	<div class="error">
 		{form.error}
 	</div>
 {/if}

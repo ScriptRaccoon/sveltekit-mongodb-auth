@@ -18,6 +18,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Account</title>
+</svelte:head>
+
 <h1>Account</h1>
 
 <p>
@@ -34,29 +38,27 @@
 			value={$user?.name}
 		/>
 	</div>
-	<div>
-		<button>Change name</button>
-	</div>
+	<button>Change name</button>
 </form>
 
 {#if form?.message}
-	<div class="bold success">
+	<div class="success">
 		{form.message}
 	</div>
 {/if}
 
 {#if form?.error}
-	<div class="bold error">
+	<div class="error">
 		{form.error}
 	</div>
 {/if}
 
-<div class="logout">
+<form on:submit|preventDefault={logout}>
 	<button on:click={logout}>Logout</button>
-</div>
+</form>
 
 <style>
-	.logout {
-		margin-top: 2rem;
+	form {
+		margin-top: 1rem;
 	}
 </style>
