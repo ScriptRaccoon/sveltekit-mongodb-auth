@@ -10,10 +10,12 @@ export const actions: Actions = {
 		const password = data.get("password") as string;
 
 		const user_data = await login_user(email, password);
+
 		if ("error" in user_data) {
 			return fail(500, { email, error: user_data.error });
 		} else {
 			const { token, user } = user_data;
+
 			const one_day = 60 * 60 * 24;
 			cookies.set("auth-token", token, {
 				httpOnly: true,
@@ -22,6 +24,7 @@ export const actions: Actions = {
 				path: "/",
 				maxAge: one_day
 			});
+
 			return { user };
 		}
 	}

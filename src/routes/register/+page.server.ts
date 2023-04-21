@@ -11,6 +11,7 @@ export const actions: Actions = {
 		const name = data.get("name") as string;
 
 		const user = await register_user(email, password, name);
+
 		if ("error" in user) {
 			return fail(500, { email, error: user.error });
 		} else {

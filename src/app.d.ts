@@ -5,6 +5,10 @@ declare global {
 		name: string;
 	};
 
+	type auth = {
+		id: string;
+	};
+
 	namespace App {}
 }
 

@@ -11,8 +11,8 @@
 <p>Welcome, {$user?.name}!</p>
 
 <img
-	src="https://unsplash.it/700/400"
-	alt="random placeholder from unsplash"
+	src="https://picsum.photos/id/177/800/600"
+	alt="hiker wearing a backpack looking over mountains in the morning"
 />
 
 <style>
