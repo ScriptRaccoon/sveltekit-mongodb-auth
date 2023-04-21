@@ -9,7 +9,6 @@ if (browser && localStorage.getItem("user")) {
 
 export const user = writable<user | null>(saved_user);
 
-if (browser)
-	user.subscribe(($user) => {
-		localStorage.setItem("user", JSON.stringify($user));
-	});
+user.subscribe(($user) => {
+	if (browser) localStorage.setItem("user", JSON.stringify($user));
+});
