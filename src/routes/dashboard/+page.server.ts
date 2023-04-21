@@ -1,5 +1,2 @@
-import type { PageServerLoad } from "./$types";
-
-export const load: PageServerLoad = async () => {
-	return {};
-};
+// file must be added so that the server hook
+// is running when navigating to /dashboard
