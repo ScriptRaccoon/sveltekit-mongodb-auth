@@ -1,7 +1,8 @@
 <script lang="ts">
-	import type { ActionData } from "./$types";
+	import type { ActionData, PageData } from "./$types";
 
 	export let form: ActionData;
+	export let data: PageData;
 </script>
 
 <svelte:head>
@@ -10,12 +11,17 @@
 
 <h1>Account</h1>
 
-<p>You are logged in with the email ???.</p>
+<p>You are logged in with the email {data.email}.</p>
 
 <form action="?/name" method="POST" autocomplete="off">
 	<div>
 		<label for="name_input">Name</label>
-		<input type="text" id="name_input" name="name" value={"???"} />
+		<input
+			type="text"
+			id="name_input"
+			name="name"
+			value={data.name}
+		/>
 	</div>
 	<button>Change name</button>
 </form>

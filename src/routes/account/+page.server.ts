@@ -26,6 +26,8 @@ export const actions: Actions = {
 			return fail(500, { error: update.error });
 		}
 
+		event.cookies.set("name", name);
+
 		return { name: name, message: `Your new name is ${name}.` };
 	}
 };
