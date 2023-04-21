@@ -6,7 +6,7 @@ export async function register_user(
 	email: string,
 	password: string,
 	name: string
-) {
+): Promise<{ error: string }> {
 	const email_error = await verify_email(email);
 
 	if (email_error) {
@@ -35,8 +35,8 @@ export async function register_user(
 	});
 
 	try {
-		const saved_user = await user.save();
-		return saved_user;
+		await user.save();
+		return { error: "" };
 	} catch (err) {
 		console.log(err);
 		return { error: "Registration failed." };

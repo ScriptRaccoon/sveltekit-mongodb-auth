@@ -26,7 +26,12 @@
 	</div>
 	<div>
 		<label for="name_input">Name</label>
-		<input type="text" id="name_input" name="name" />
+		<input
+			type="text"
+			id="name_input"
+			name="name"
+			value={form?.name ?? ""}
+		/>
 	</div>
 	<button>Register</button>
 </form>
