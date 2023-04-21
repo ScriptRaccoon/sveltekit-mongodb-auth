@@ -8,8 +8,6 @@ declare global {
 	type auth = {
 		id: string;
 	};
-
-	namespace App {}
 }
 
 export {};

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Nav from "$lib/components/Nav.svelte";
 	import "$lib/css/app.css";
-	import type { LayoutData } from "./$types";
 </script>
 
 <Nav />
