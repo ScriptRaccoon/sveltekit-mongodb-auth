@@ -8,23 +8,10 @@ export const actions: Actions = {
 		const form_data = await event.request.formData();
 		const name = form_data.get("name") as string;
 
-		if (!name || name.length <= 1) {
-			return fail(400, {
-				error: "Name has to be at least 2 characters."
-			});
-		}
-
-		const auth = authenticate(event.cookies);
-
-		if (!auth) {
-			return fail(401, { error: "You are not authorized." });
-		}
-
-		const { id } = auth;
-		const update = await change_name(id, name);
+		const update = await change_name(event.cookies, name);
 
 		if ("error" in update) {
-			return fail(500, { error: update.error });
+			return fail(400, { error: update.error });
 		}
 
 		event.cookies.set("name", name, cookie_options);
