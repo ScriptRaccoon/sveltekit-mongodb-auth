@@ -38,12 +38,11 @@ export async function register_user(
 		await user.save();
 		return { error: "" };
 	} catch (err) {
-		console.log(err);
-		return { error: "Registration failed." };
+		return { error: err as string };
 	}
 }
 
-async function verify_email(email: string): Promise<string> {
+export async function verify_email(email: string): Promise<string> {
 	if (!email) {
 		return "Email is required.";
 	}

@@ -12,8 +12,6 @@
 
 <h1>Account</h1>
 
-<p>You are logged in with the email {data.email}.</p>
-
 <form action="?/name" method="POST" autocomplete="off" use:enhance>
 	<div>
 		<label for="name_input">Name</label>
@@ -25,6 +23,19 @@
 		/>
 	</div>
 	<button>Change name</button>
+</form>
+
+<form action="?/email" method="POST" autocomplete="off" use:enhance>
+	<div>
+		<label for="email_input">Email</label>
+		<input
+			type="email"
+			id="email_input"
+			name="email"
+			value={data.email}
+		/>
+	</div>
+	<button>Change email</button>
 </form>
 
 {#if form?.message}
