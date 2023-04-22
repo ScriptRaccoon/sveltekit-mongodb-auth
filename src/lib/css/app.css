@@ -7,7 +7,11 @@
 :root {
 	--accent-color: rgb(211, 59, 3);
 	--highlight-color: yellow;
-	--error-color: rgb(255, 50, 50);
+	--error-color: rgb(230, 20, 20);
+	--background-color: #131317;
+	--nav-color: #202028;
+	--font-color: #fff;
+	--label-color: #aaa;
 }
 
 body {
@@ -15,8 +19,8 @@ body {
 		"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
 		"Helvetica Neue", sans-serif;
 	line-height: 1.5;
-	background-color: #121217;
-	color: white;
+	background-color: var(--background-color);
+	color: var(--font-color);
 	font-size: 1.2rem;
 }
 
@@ -24,17 +28,18 @@ h1 {
 	padding-block: 2rem;
 	line-height: 1.2;
 	font-weight: 400;
+	font-size: 2rem;
 }
 
 a {
 	color: inherit;
 	text-underline-offset: 0.2rem;
+	outline: none;
 }
 
 a:hover,
 a:focus {
 	color: var(--highlight-color);
-	outline: none;
 }
 
 button,
@@ -43,31 +48,30 @@ input {
 	border: none;
 	font-family: inherit;
 	font-size: inherit;
-	padding-block: 0.4rem;
 	border-radius: 0.25rem;
 	background: none;
 }
 
 button {
-	padding-inline: 0.8rem;
+	padding: 0.4rem 0.8rem;
 	background-color: var(--accent-color);
 	cursor: pointer;
 }
 
 button:focus {
-	outline: 0.1rem solid white;
+	outline: 0.1rem solid var(--font-color);
 	outline-offset: 0.2rem;
 }
 
 input {
-	padding-inline: 0.4rem;
+	padding: 0.4rem;
 	width: 100%;
 	border: 0.1rem solid #555;
 }
 
 input:focus {
-	outline: none;
 	border-color: var(--accent-color);
+	outline: 0.1rem solid var(--accent-color);
 }
 
 form > * {
@@ -76,10 +80,14 @@ form > * {
 
 label {
 	display: block;
+	font-size: 1rem;
+	color: var(--labelc-color);
+	margin-bottom: 0.2rem;
 }
 
 .error {
 	color: var(--error-color);
+	font-weight: bold;
 }
 
 .success {

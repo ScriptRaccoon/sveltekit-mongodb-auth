@@ -29,13 +29,13 @@
 </form>
 
 {#if form?.user}
-	<div class="success">
+	<p class="success">
 		Welcome {form.user.name}! You can now open the dashboard.
-	</div>
+	</p>
 {/if}
 
 {#if form?.error}
-	<div class="error">
+	<p class="error">
 		{form.error}
-	</div>
+	</p>
 {/if}

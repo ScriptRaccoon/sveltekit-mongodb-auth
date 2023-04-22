@@ -12,7 +12,13 @@
 
 <h1>Account</h1>
 
-<form action="?/name" method="POST" autocomplete="off" use:enhance>
+<form
+	action="?/name"
+	method="POST"
+	autocomplete="off"
+	use:enhance
+	class="update-form"
+>
 	<div>
 		<label for="name_input">Name</label>
 		<input
@@ -22,10 +28,16 @@
 			value={data.name}
 		/>
 	</div>
-	<button>Change name</button>
+	<button aria-label="update name">Update</button>
 </form>
 
-<form action="?/email" method="POST" autocomplete="off" use:enhance>
+<form
+	action="?/email"
+	method="POST"
+	autocomplete="off"
+	use:enhance
+	class="update-form"
+>
 	<div>
 		<label for="email_input">Email</label>
 		<input
@@ -35,27 +47,33 @@
 			value={data.email}
 		/>
 	</div>
-	<button>Change email</button>
+	<button aria-label="update email">Update</button>
 </form>
 
 {#if form?.message}
-	<div class="success">
+	<p class="success">
 		{form.message}
-	</div>
+	</p>
 {/if}
 
 {#if form?.error}
-	<div class="error">
+	<p class="error">
 		{form.error}
-	</div>
+	</p>
 {/if}
 
-<form action="/logout" method="POST">
+<form action="/logout" method="POST" class="logout-form">
 	<button>Logout</button>
 </form>
 
 <style>
-	form {
-		margin-top: 1rem;
+	.update-form {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: end;
+		gap: 1rem;
+	}
+	.logout-form {
+		margin-top: 1.5rem;
 	}
 </style>

@@ -38,13 +38,13 @@
 </form>
 
 {#if form?.message}
-	<div class="success">
+	<p class="success">
 		{form.message}
-	</div>
+	</p>
 {/if}
 
 {#if form?.error}
-	<div class="error">
+	<p class="error">
 		{form.error}
-	</div>
+	</p>
 {/if}

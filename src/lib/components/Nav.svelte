@@ -44,11 +44,13 @@
 	<ul>
 		{#each links as link}
 			{#if link.path === "/" || logged_in == link.protected}
-				<a
-					href={link.path}
-					aria-current={path == link.path ? "page" : "false"}
-					>{link.text}</a
-				>
+				<li>
+					<a
+						href={link.path}
+						aria-current={path == link.path ? "page" : "false"}
+						>{link.text}</a
+					>
+				</li>
 			{/if}
 		{/each}
 	</ul>
@@ -56,15 +58,14 @@
 
 <style>
 	nav {
-		padding-block: 1.5rem;
-		background-color: #222227;
-		color: white;
+		padding-block: 1.25rem;
+		background-color: var(--nav-color);
 	}
 	ul {
 		list-style-type: none;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		gap: 1.5rem;
+		gap: 1.25rem;
 	}
 </style>
