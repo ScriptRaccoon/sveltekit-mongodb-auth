@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
+
 import { User_Model } from "./models";
-import { email_regexp } from "$lib/utils";
+import { email_regexp } from "./utils";
 
 export async function register_user(
 	email: string,

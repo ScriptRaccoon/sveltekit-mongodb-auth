@@ -1,5 +1,5 @@
-import { SECRET_JWT_KEY } from "$env/static/private";
 import jwt from "jsonwebtoken";
+import { SECRET_JWT_KEY } from "$env/static/private";
 import type { Cookies } from "@sveltejs/kit";
 
 export function authenticate(cookies: Cookies): auth | undefined {

@@ -1,13 +1,12 @@
-import { change_email } from "$lib/server/change_email";
-import { change_name } from "$lib/server/change_name";
-import { cookie_options } from "$lib/utils";
 import { fail } from "@sveltejs/kit";
 import type { Actions } from "./$types";
+import { cookie_options } from "$lib/server/utils";
+import { change_email, change_name } from "$lib/server/account";
 
 export const actions: Actions = {
 	name: async (event) => {
-		const form_data = await event.request.formData();
-		const name = (form_data.get("name") as string).trim();
+		const data = await event.request.formData();
+		const name = (data.get("name") as string).trim();
 
 		const update = await change_name(event.cookies, name);
 
@@ -23,10 +22,8 @@ export const actions: Actions = {
 	},
 
 	email: async (event) => {
-		const form_data = await event.request.formData();
-		const email = (form_data.get("email") as string)
-			.toLowerCase()
-			.trim();
+		const data = await event.request.formData();
+		const email = (data.get("email") as string).toLowerCase().trim();
 
 		const update = await change_email(event.cookies, email);
 

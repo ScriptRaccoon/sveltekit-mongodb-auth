@@ -3,8 +3,6 @@
 
 	export let logged_in = false;
 
-	$: path = $page.url.pathname;
-
 	type link = {
 		path: string;
 		text: string;
@@ -43,13 +41,13 @@
 <nav>
 	<ul>
 		{#each links as link}
-			{#if link.path === "/" || logged_in == link.protected}
+			{#if link.path === "/" || logged_in === link.protected}
+				{@const aria_current =
+					$page.url.pathname == link.path ? "page" : "false"}
 				<li>
-					<a
-						href={link.path}
-						aria-current={path == link.path ? "page" : "false"}
-						>{link.text}</a
-					>
+					<a href={link.path} aria-current={aria_current}>
+						{link.text}
+					</a>
 				</li>
 			{/if}
 		{/each}
