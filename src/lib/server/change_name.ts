@@ -1,6 +1,7 @@
 import type { Cookies } from "@sveltejs/kit";
 import { User_Model } from "./models";
-import { authenticate } from "$lib/auth";
+import { authenticate } from "$lib/server/authenticate";
+import { verify_name } from "./register";
 
 export async function change_name(
 	cookies: Cookies,
@@ -14,10 +15,10 @@ export async function change_name(
 
 	const { id } = auth;
 
-	if (!name || name.length <= 1) {
-		return {
-			error: "Name has to be at least 2 characters."
-		};
+	const name_error = verify_name(name);
+
+	if (name_error) {
+		return { error: name_error };
 	}
 
 	const user = await User_Model.findOne({ _id: id });

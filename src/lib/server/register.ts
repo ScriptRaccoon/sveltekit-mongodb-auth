@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { User_Model } from "$lib/db/models";
+import { User_Model } from "./models";
 import { email_regexp } from "$lib/utils";
 
 export async function register_user(
@@ -72,7 +72,7 @@ function verify_password(password: string): string {
 	return "";
 }
 
-function verify_name(name: string): string {
+export function verify_name(name: string): string {
 	if (!name) {
 		return "Name is required.";
 	}

@@ -1,4 +1,4 @@
-import { authenticate } from "$lib/auth";
+import { authenticate } from "$lib/server/authenticate";
 import type { Handle } from "@sveltejs/kit";
 import { redirect } from "@sveltejs/kit";
 

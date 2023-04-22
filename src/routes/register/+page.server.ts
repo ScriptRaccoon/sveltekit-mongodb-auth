@@ -1,4 +1,4 @@
-import { register_user } from "./register";
+import { register_user } from "$lib/server/register";
 import { fail } from "@sveltejs/kit";
 import type { Actions } from "./$types";
 

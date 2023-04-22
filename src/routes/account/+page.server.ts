@@ -1,8 +1,8 @@
-import { authenticate } from "$lib/auth";
-import { change_email } from "$lib/db/email";
-import { change_name } from "$lib/db/name";
+import { change_email } from "$lib/server/change_email";
+import { change_name } from "$lib/server/change_name";
 import { cookie_options } from "$lib/utils";
-import { fail, type Actions } from "@sveltejs/kit";
+import { fail } from "@sveltejs/kit";
+import type { Actions } from "./$types";
 
 export const actions: Actions = {
 	name: async (event) => {

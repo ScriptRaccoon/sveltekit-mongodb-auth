@@ -1,5 +1,5 @@
 import type { LayoutServerLoad } from "./$types";
-import { connect_to_db } from "$lib/db/connect";
+import { connect_to_db } from "$lib/server/db";
 import { error } from "@sveltejs/kit";
 
 export const load: LayoutServerLoad = async (event) => {

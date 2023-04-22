@@ -1,7 +1,7 @@
 import type { Cookies } from "@sveltejs/kit";
 import { User_Model } from "./models";
-import { authenticate } from "$lib/auth";
-import { verify_email } from "../../routes/register/register";
+import { authenticate } from "$lib/server/authenticate";
+import { verify_email } from "$lib/server/register";
 
 export async function change_email(
 	cookies: Cookies,
