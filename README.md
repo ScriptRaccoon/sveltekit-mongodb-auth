@@ -15,3 +15,5 @@ The application works without client-side JavaScript, thanks to SvelteKit's SSR 
 There are three routes which can be accessed by all users: `/`, `/login` and `/register`. The two routes `/dashboard` and `/account` can only be accessed by users who are logged in (and only they see them in the navigation bar). This is checked in the `hooks.server.ts` file by verifying the JWT stored in the `auth-token` cookie.
 
 When you want to clone this repository, make sure to rename `.env.example` to `.env` and fill in the required environment variables.
+
+This repository will be used for a tutorial. The branch `starter-code` has the starter code with the pure frontend stuff.
