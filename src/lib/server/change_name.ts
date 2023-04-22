@@ -27,6 +27,10 @@ export async function change_name(
 		return { error: "User could not be found" };
 	}
 
+	if (user.name == name) {
+		return { error: "You already have this name." };
+	}
+
 	user.name = name;
 
 	try {
