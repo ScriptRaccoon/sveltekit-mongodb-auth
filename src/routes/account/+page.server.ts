@@ -7,7 +7,7 @@ import type { Actions } from "./$types";
 export const actions: Actions = {
 	name: async (event) => {
 		const form_data = await event.request.formData();
-		const name = form_data.get("name") as string;
+		const name = (form_data.get("name") as string).trim();
 
 		const update = await change_name(event.cookies, name);
 
@@ -24,7 +24,9 @@ export const actions: Actions = {
 
 	email: async (event) => {
 		const form_data = await event.request.formData();
-		const email = (form_data.get("email") as string).toLowerCase();
+		const email = (form_data.get("email") as string)
+			.toLowerCase()
+			.trim();
 
 		const update = await change_email(event.cookies, email);
 
