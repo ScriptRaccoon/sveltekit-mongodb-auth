@@ -1,4 +1,4 @@
-# SvelteKit Authentication
+# SvelteKit Authentication with MongoDB
 
 https://sveltekit-auth.netlify.app
 
