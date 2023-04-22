@@ -4,7 +4,7 @@ https://sveltekit-auth.netlify.app
 
 This is a template of a SvelteKit project which authenticates users stored in MongoDB.
 
-Users can register, login, open a dashboard (which is just a placeholder here) and an account page. On the account page, the name can be changed, and logout is possible.
+Users can register, login, open a dashboard (which is just a placeholder here) and an account page. On the account page, name and email can be changed, and logout is possible.
 
 The users are stored in a MongoDB database. The user authentication is implemented with JWT and cookies. After login, the user name and email are stored as cookies as well.
 
