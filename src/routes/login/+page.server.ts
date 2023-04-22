@@ -4,8 +4,8 @@ import { login_user } from "./login";
 import { cookie_options } from "$lib/utils";
 
 export const actions: Actions = {
-	default: async ({ request, cookies }) => {
-		const data = await request.formData();
+	default: async (event) => {
+		const data = await event.request.formData();
 
 		const email = (data.get("email") as string).toLowerCase();
 		const password = data.get("password") as string;
@@ -17,9 +17,9 @@ export const actions: Actions = {
 		} else {
 			const { token, user } = user_data;
 
-			cookies.set("auth-token", token, cookie_options);
-			cookies.set("email", user.email, cookie_options);
-			cookies.set("name", user.name, cookie_options);
+			event.cookies.set("auth-token", token, cookie_options);
+			event.cookies.set("email", user.email, cookie_options);
+			event.cookies.set("name", user.name, cookie_options);
 
 			return { email, user };
 		}
