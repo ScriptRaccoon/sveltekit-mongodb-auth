@@ -29,6 +29,8 @@ export const actions: Actions = {
 
 		event.cookies.set("name", name, cookie_options);
 
-		return { name: name, message: `Your new name is ${name}.` };
+		const message = `Your new name is ${name}.`;
+
+		return { name, message };
 	}
 };
