@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { enhance } from "$app/forms";
 	import type { ActionData } from "./$types";
 
 	export let form: ActionData;
@@ -10,7 +11,7 @@
 
 <h1>Login</h1>
 
-<form method="POST" autocomplete="off">
+<form method="POST" autocomplete="off" use:enhance>
 	<div>
 		<label for="email_input">Email</label>
 		<input
