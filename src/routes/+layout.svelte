@@ -1,11 +1,9 @@
 <script lang="ts">
 	import Nav from "$lib/components/Nav.svelte";
 	import "$lib/css/app.css";
-	import type { LayoutData } from "./$types";
-	export let data: LayoutData;
 </script>
 
-<Nav logged_in={!!data.name.length && !!data.email} />
+<Nav />
 
 <main>
 	<slot />

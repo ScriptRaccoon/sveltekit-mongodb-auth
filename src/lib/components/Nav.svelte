@@ -1,8 +1,4 @@
 <script lang="ts">
-	import { page } from "$app/stores";
-
-	export let logged_in = false;
-
 	type link = {
 		path: string;
 		text: string;
@@ -41,15 +37,11 @@
 <nav>
 	<ul>
 		{#each links as link}
-			{#if link.path === "/" || logged_in === link.protected}
-				{@const aria_current =
-					$page.url.pathname == link.path ? "page" : "false"}
-				<li>
-					<a href={link.path} aria-current={aria_current}>
-						{link.text}
-					</a>
-				</li>
-			{/if}
+			<li>
+				<a href={link.path}>
+					{link.text}
+				</a>
+			</li>
 		{/each}
 	</ul>
 </nav>

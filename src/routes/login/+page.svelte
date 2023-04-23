@@ -1,8 +1,5 @@
 <script lang="ts">
-	import { enhance } from "$app/forms";
-	import type { ActionData } from "./$types";
-
-	export let form: ActionData;
+	//
 </script>
 
 <svelte:head>
@@ -11,15 +8,10 @@
 
 <h1>Login</h1>
 
-<form method="POST" autocomplete="off" use:enhance>
+<form method="POST" autocomplete="off">
 	<div>
 		<label for="email_input">Email</label>
-		<input
-			type="email"
-			id="email_input"
-			name="email"
-			value={form?.email ?? ""}
-		/>
+		<input type="email" id="email_input" name="email" />
 	</div>
 	<div>
 		<label for="password_input">Password</label>
@@ -27,15 +19,3 @@
 	</div>
 	<button>Login</button>
 </form>
-
-{#if form?.user}
-	<p class="success">
-		Welcome {form.user.name}! You can now open the dashboard.
-	</p>
-{/if}
-
-{#if form?.error}
-	<p class="error">
-		{form.error}
-	</p>
-{/if}
