@@ -6,7 +6,7 @@ import { change_email, change_name } from "$lib/server/account";
 export const actions: Actions = {
 	name: async (event) => {
 		const data = await event.request.formData();
-		const name = (data.get("name") as string).trim();
+		const name = (data.get("name") as string)?.trim();
 
 		const update = await change_name(event.cookies, name);
 
@@ -23,7 +23,9 @@ export const actions: Actions = {
 
 	email: async (event) => {
 		const data = await event.request.formData();
-		const email = (data.get("email") as string).toLowerCase().trim();
+		const email = (data.get("email") as string)
+			?.toLowerCase()
+			?.trim();
 
 		const update = await change_email(event.cookies, email);
 

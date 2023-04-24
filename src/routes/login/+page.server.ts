@@ -15,7 +15,7 @@ export const actions: Actions = {
 		const user_data = await login_user(email, password);
 
 		if ("error" in user_data) {
-			return fail(500, { email, error: user_data.error });
+			return fail(400, { email, error: user_data.error });
 		} else {
 			const { token, user } = user_data;
 
