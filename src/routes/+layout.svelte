@@ -5,7 +5,7 @@
 	export let data: LayoutData;
 </script>
 
-<Nav logged_in={!!data.name.length && !!data.email} />
+<Nav logged_in={!!data.name && !!data.email} />
 
 <main>
 	<slot />
