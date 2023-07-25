@@ -39,7 +39,7 @@ export async function register_user(
 		await user.save();
 		return { error: "" };
 	} catch (err) {
-		return { error: err as string };
+		return { error: err?.toString() as string };
 	}
 }
 

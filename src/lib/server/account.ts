@@ -37,7 +37,7 @@ export async function change_name(
 		await user.save();
 		return { name };
 	} catch (err) {
-		return { error: err as string };
+		return { error: err?.toString() as string };
 	}
 }
 
@@ -71,6 +71,6 @@ export async function change_email(
 		await user.save();
 		return { email };
 	} catch (err) {
-		return { error: err as string };
+		return { error: err?.toString() as string };
 	}
 }
